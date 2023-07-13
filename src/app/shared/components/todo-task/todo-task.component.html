@@ -1,0 +1,10 @@
+<div>
+  <p>Task:{{ todo.text }}</p>
+  <p>Date:{{ todo.date }}</p>
+  <input
+    type="radio"
+    [checked]="todo.isImportant"
+  />
+  <button>Edit</button>
+  <button>Delete</button>
+</div>

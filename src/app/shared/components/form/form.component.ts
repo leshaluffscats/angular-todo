@@ -1,5 +1,6 @@
-import { Component } from "@angular/core";
-import { FormBuilder } from "@angular/forms";
+import { Component, Output, EventEmitter } from "@angular/core";
+import { FormBuilder, Validators } from "@angular/forms";
+import { ITodo } from "../../interfaces/todo.interface";
 
 @Component({
   selector: "todo-form",
@@ -8,12 +9,17 @@ import { FormBuilder } from "@angular/forms";
 })
 export class FormComponent {
   taskForm = this.formBuilder.group({
-    taskText: [""],
-    date: [""],
+    text: ["", Validators.required],
+    date: ["", Validators.required],
     isImportant: [false],
   });
 
+  @Output() passTask = new EventEmitter<ITodo>();
+
+  passTaskObject(task: ITodo) {
+    this.passTask.emit(task);
+  }
   constructor(private formBuilder: FormBuilder) {
-    // !!
+    // ....
   }
 }

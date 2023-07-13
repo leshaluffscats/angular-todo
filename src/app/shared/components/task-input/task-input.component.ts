@@ -4,10 +4,14 @@ import {
   forwardRef,
   ChangeDetectorRef,
 } from "@angular/core";
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
+import {
+  ControlValueAccessor,
+  // FormControl,
+  NG_VALUE_ACCESSOR,
+} from "@angular/forms";
 
 @Component({
-  selector: "todo-task-input",
+  selector: "todo-input",
   templateUrl: "./task-input.component.html",
   styleUrls: ["./task-input.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -24,6 +28,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
 export class TaskInputComponent implements ControlValueAccessor {
   value: string | undefined;
 
+  // !value = new FormControl(""); переделать на это
   onChange!: (value: string) => void;
   onTouched!: () => void;
 

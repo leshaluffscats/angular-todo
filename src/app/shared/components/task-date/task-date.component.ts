@@ -2,7 +2,7 @@ import { ChangeDetectorRef, Component, Self } from "@angular/core";
 import { ControlValueAccessor, NgControl } from "@angular/forms";
 
 @Component({
-  selector: "todo-task-date",
+  selector: "todo-datepicker",
   templateUrl: "./task-date.component.html",
   styleUrls: ["./task-date.component.scss"],
 })

@@ -1,0 +1,33 @@
+div {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid red;
+  align-items: center;
+  padding: 5px 10px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+
+  button {
+    background: none;
+    height: 30px;
+    width: 60px;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      background-color: lightgray;
+    }
+  }
+
+  button:last-of-type {
+    background-color: rgba(255, 0, 0, 0.1);
+
+    &:hover {
+      background-color: red;
+      color: #fff;
+    }
+  }
+}

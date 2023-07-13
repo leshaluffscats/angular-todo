@@ -1,6 +1,10 @@
-<form [formGroup]="taskForm">
-  <todo-task-input [formControlName]="'taskText'"></todo-task-input>
-  <todo-task-date [formControlName]="'date'"></todo-task-date>
-  <todo-important-flag [formControlName]="'isImportant'"></todo-important-flag>
+<form
+  [formGroup]="taskForm"
+  (ngSubmit)="passTaskObject(taskForm.value)"
+>
+  <todo-input [formControlName]="'text'"></todo-input>
+  <todo-datepicker [formControlName]="'date'"></todo-datepicker>
+  <todo-checkbox [formControlName]="'isImportant'"></todo-checkbox>
+
+  <button type="Submit">Add Task</button>
 </form>
-<div>{{ taskForm.value | json }}</div>

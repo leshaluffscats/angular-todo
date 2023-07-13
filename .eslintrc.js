@@ -9,15 +9,15 @@ module.exports = {
     window: true,
     module: true,
   },
-  parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint'],
-  ignorePatterns: ['**/*.html'],
+  parser: "@typescript-eslint/parser",
+  plugins: ["@typescript-eslint"],
+  ignorePatterns: ["**/*.html"],
   rules: {
-    'no-empty-function': 'error',
+    "no-empty-function": "error",
   },
   extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
-    'prettier',
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
   ],
 };
