@@ -1,4 +1,9 @@
-import { Component, Output, EventEmitter } from "@angular/core";
+import {
+  Component,
+  Output,
+  EventEmitter,
+  ChangeDetectionStrategy,
+} from "@angular/core";
 import { FormBuilder, Validators } from "@angular/forms";
 import { ITodo } from "../../interfaces/todo.interface";
 
@@ -6,11 +11,12 @@ import { ITodo } from "../../interfaces/todo.interface";
   selector: "todo-form",
   templateUrl: "./form.component.html",
   styleUrls: ["./form.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FormComponent {
   taskForm = this.formBuilder.group({
     text: ["", Validators.required],
-    date: ["", Validators.required],
+    date: ["", [Validators.required, Validators.maxLength(10)]],
     isImportant: [false],
   });
 

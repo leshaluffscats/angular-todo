@@ -1,10 +1,16 @@
-import { ChangeDetectorRef, Component, Self } from "@angular/core";
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  Self,
+} from "@angular/core";
 import { ControlValueAccessor, NgControl } from "@angular/forms";
 
 @Component({
   selector: "todo-datepicker",
   templateUrl: "./task-date.component.html",
   styleUrls: ["./task-date.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TaskDateComponent implements ControlValueAccessor {
   value: string | undefined;

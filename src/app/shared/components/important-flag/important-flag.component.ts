@@ -1,13 +1,19 @@
-import { Component, Self, ChangeDetectorRef } from "@angular/core";
+import {
+  Component,
+  Self,
+  ChangeDetectorRef,
+  ChangeDetectionStrategy,
+} from "@angular/core";
 import { ControlValueAccessor, NgControl } from "@angular/forms";
 
 @Component({
   selector: "todo-checkbox",
   templateUrl: "./important-flag.component.html",
   styleUrls: ["./important-flag.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ImportantFlagComponent implements ControlValueAccessor {
-  value!: boolean;
+  value: boolean;
 
   onChange!: (value: boolean) => void;
   onTouched!: () => void;

@@ -3,6 +3,7 @@
   "tabWidth": 2,
   "semi": true,
   "singleQuote": false,
+  "quoteProps": "preserve",
   "arrowParens": "avoid",
   "bracketSameLine": false,
   "singleAttributePerLine": true

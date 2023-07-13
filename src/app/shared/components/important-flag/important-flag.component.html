@@ -1,8 +1,10 @@
-<label>
-  Important
-  <input
-    type="checkbox"
-    [value]="value"
-    (input)="onCheckboxChange($event)"
-  />
-</label>
+<input
+  type="checkbox"
+  [value]="value"
+  (input)="onCheckboxChange($event)"
+  id="importantFlag"
+/>
+<label
+  for="importantFlag"
+  title="important"
+></label>

@@ -6,5 +6,11 @@
   <todo-datepicker [formControlName]="'date'"></todo-datepicker>
   <todo-checkbox [formControlName]="'isImportant'"></todo-checkbox>
 
-  <button type="Submit">Add Task</button>
+  <button
+    type="Submit"
+    [disabled]="taskForm.invalid"
+    [ngClass]="{ disabledBtn: taskForm.invalid }"
+  >
+    Add Task
+  </button>
 </form>
