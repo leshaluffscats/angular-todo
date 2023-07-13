@@ -1,5 +1,6 @@
-<form>
-  <todo-task-input></todo-task-input>
-  <todo-task-date></todo-task-date>
-  <todo-important-flag></todo-important-flag>
+<form [formGroup]="taskForm">
+  <todo-task-input [formControlName]="'taskText'"></todo-task-input>
+  <todo-task-date [formControlName]="'date'"></todo-task-date>
+  <todo-important-flag [formControlName]="'isImportant'"></todo-important-flag>
 </form>
+<div>{{ taskForm.value | json }}</div>

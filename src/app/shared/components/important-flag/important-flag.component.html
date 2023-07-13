@@ -1,1 +1,8 @@
-<p>important-flag works!</p>
+<label>
+  Important
+  <input
+    type="checkbox"
+    [value]="value"
+    (input)="onCheckboxChange($event)"
+  />
+</label>

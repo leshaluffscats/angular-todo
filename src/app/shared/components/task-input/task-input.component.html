@@ -1,1 +1,6 @@
-<p>task-input works!</p>
+<input
+  type="text"
+  placeholder="task"
+  [value]="value"
+  (input)="onInputValueChange($event)"
+/>
