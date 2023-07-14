@@ -10,11 +10,10 @@ import { TranslateService } from "@ngx-translate/core";
 export class HeaderComponent {
   constructor(private translate: TranslateService) {
     translate.setDefaultLang("en");
-    // The default language is the fall-back language, that is used if a translation can not be found.
   }
 
   changeLang(event: Event) {
-    const target = event.target as HTMLInputElement;
+    const target = event.target as HTMLSelectElement;
     this.translate.use(target.value);
   }
 }
