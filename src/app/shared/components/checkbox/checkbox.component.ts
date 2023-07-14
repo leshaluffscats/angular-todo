@@ -8,11 +8,11 @@ import { ControlValueAccessor, NgControl } from "@angular/forms";
 
 @Component({
   selector: "todo-checkbox",
-  templateUrl: "./important-flag.component.html",
-  styleUrls: ["./important-flag.component.scss"],
+  templateUrl: "./checkbox.component.html",
+  styleUrls: ["./checkbox.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ImportantFlagComponent implements ControlValueAccessor {
+export class CheckboxComponent implements ControlValueAccessor {
   value: boolean;
 
   onChange!: (value: boolean) => void;

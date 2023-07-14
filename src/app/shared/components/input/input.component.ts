@@ -12,20 +12,20 @@ import {
 
 @Component({
   selector: "todo-input",
-  templateUrl: "./task-input.component.html",
-  styleUrls: ["./task-input.component.scss"],
+  templateUrl: "./input.component.html",
+  styleUrls: ["./input.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => TaskInputComponent),
+      useExisting: forwardRef(() => InputComponent),
       multi: true,
     },
     // можно вместо providers использовать в конструкторе @Self ngControl
     // И указать ему valueAccessor = this
   ],
 })
-export class TaskInputComponent implements ControlValueAccessor {
+export class InputComponent implements ControlValueAccessor {
   value: string | undefined;
 
   // !value = new FormControl(""); переделать на это

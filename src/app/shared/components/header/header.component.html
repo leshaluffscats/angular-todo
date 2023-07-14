@@ -1,4 +1,13 @@
 <header>
-  <h2>Todo App</h2>
-  <button>Translate</button>
+  <h2>{{ "Todo App" | translate }}</h2>
+  <select (change)="changeLang($event)">
+    <option
+      value="en"
+      selected
+    >
+      ENG
+    </option>
+    <option value="ru">RUS</option>
+    <option value="es">ESP</option>
+  </select>
 </header>

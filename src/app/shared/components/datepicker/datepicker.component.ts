@@ -8,11 +8,11 @@ import { ControlValueAccessor, NgControl } from "@angular/forms";
 
 @Component({
   selector: "todo-datepicker",
-  templateUrl: "./task-date.component.html",
-  styleUrls: ["./task-date.component.scss"],
+  templateUrl: "./datepicker.component.html",
+  styleUrls: ["./datepicker.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TaskDateComponent implements ControlValueAccessor {
+export class DatepickerComponent implements ControlValueAccessor {
   value: string | undefined;
 
   onChange!: (value: string) => void;
