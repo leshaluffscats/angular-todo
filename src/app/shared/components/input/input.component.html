@@ -1,6 +1,7 @@
 <input
   type="text"
   placeholder="task"
-  [value]="value"
-  (input)="onInputValueChange($event)"
+  [formControl]="task"
+  (input)="onInputValueChange()"
 />
+<span></span>

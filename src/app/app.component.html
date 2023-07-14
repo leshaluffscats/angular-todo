@@ -1,14 +1,14 @@
 <main>
   <todo-header></todo-header>
-  <todo-form (passTask)="pushTaskData($event)"></todo-form>
+  <todo-form (passTask)="addNewTask($event)"></todo-form>
   <div
     *ngIf="tasks.length"
     class="scheduled"
   >
     <p>Scheduled: {{ tasks.length }}</p>
     <todo-todo-task
-      *ngFor="let task of tasks"
-      [todo]="task"
+      *ngFor="let task of tasks; trackBy: identifyer"
+      [task]="task"
     ></todo-todo-task>
   </div>
 </main>

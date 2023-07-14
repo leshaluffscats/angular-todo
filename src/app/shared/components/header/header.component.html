@@ -1,12 +1,7 @@
 <header>
-  <h2>{{ "Todo App" | translate }}</h2>
-  <select (change)="changeLang($event)">
-    <option
-      value="en"
-      selected
-    >
-      ENG
-    </option>
+  <h2>{{ "TODO_APP" | translate }}</h2>
+  <select [formControl]="selectedLang">
+    <option value="en">ENG</option>
     <option value="ru">RUS</option>
     <option value="es">ESP</option>
   </select>

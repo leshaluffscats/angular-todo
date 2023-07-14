@@ -1,9 +1,9 @@
 <div>
-  <p>Task:{{ todo.text }}</p>
-  <p>Date:{{ todo.date }}</p>
+  <p>Task:{{ task.text }}</p>
+  <p>Date:{{ task.date }}</p>
   <input
     type="radio"
-    [checked]="todo.isImportant"
+    [checked]="task.isImportant"
   />
   <button>Edit</button>
   <button>Delete</button>

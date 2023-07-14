@@ -1,10 +1,10 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
-import { ReactiveFormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./shared/components/header/header.component";
-import { FormComponent } from "./shared/components/form/form.component";
+import { CreateTaskComponent } from "./shared/components/createTask/createTask.component";
 import { InputComponent } from "./shared/components/input/input.component";
 import { CheckboxComponent } from "./shared/components/checkbox/checkbox.component";
 import { DatepickerComponent } from "./shared/components/datepicker/datepicker.component";
@@ -17,13 +17,14 @@ import { HttpClient, HttpClientModule } from "@angular/common/http";
   declarations: [
     AppComponent,
     HeaderComponent,
-    FormComponent,
+    CreateTaskComponent,
     InputComponent,
     CheckboxComponent,
     DatepickerComponent,
     TodoTaskComponent,
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     ReactiveFormsModule,
     HttpClientModule,
@@ -33,7 +34,7 @@ import { HttpClient, HttpClientModule } from "@angular/common/http";
         useFactory: HttpLoaderFactory,
         deps: [HttpClient],
       },
-      useDefaultLang: false,
+      useDefaultLang: true,
     }),
   ],
   providers: [HttpClient],

@@ -6,11 +6,19 @@ import { ITodo } from "./shared/interfaces/todo.interface";
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.scss"],
 })
-export class AppComponent {
-  title = "todo-app";
-  tasks: ITodo[] = [];
 
-  pushTaskData(task: ITodo) {
-    this.tasks = [...this.tasks, task];
+// todo посмотреть trackBy - ngFor есть дополнительный атрибут
+// todo посмотреть типизацию форм
+export class AppComponent {
+  public tasks: ITodo[] = [];
+
+  public addNewTask(task: ITodo): void {
+    this.tasks.push(task);
+    console.log("app tasks", this.tasks);
+  }
+
+  // todo дописать функцию
+  public identifyer() {
+    return;
   }
 }

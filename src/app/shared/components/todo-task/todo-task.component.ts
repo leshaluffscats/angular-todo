@@ -8,5 +8,5 @@ import { ITodo } from "../../interfaces/todo.interface";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TodoTaskComponent {
-  @Input() todo: ITodo;
+  @Input() task: ITodo;
 }

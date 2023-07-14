@@ -4,7 +4,7 @@ import {
   Component,
   Self,
 } from "@angular/core";
-import { ControlValueAccessor, NgControl } from "@angular/forms";
+import { ControlValueAccessor, FormControl, NgControl } from "@angular/forms";
 
 @Component({
   selector: "todo-datepicker",
@@ -13,10 +13,7 @@ import { ControlValueAccessor, NgControl } from "@angular/forms";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DatepickerComponent implements ControlValueAccessor {
-  value: string | undefined;
-
-  onChange!: (value: string) => void;
-  onTouched!: () => void;
+  date = new FormControl("");
 
   constructor(
     @Self() private readonly ngControl: NgControl,
@@ -25,16 +22,16 @@ export class DatepickerComponent implements ControlValueAccessor {
     this.ngControl.valueAccessor = this;
   }
 
+  onChange!: (value: string) => void;
+  onTouched!: () => void;
+
   writeValue(value: string): void {
-    this.value = value;
+    this.date.setValue(value);
     this.changeDetector.detectChanges();
   }
 
-  onInputChange(event: Event) {
-    const target = event.target as HTMLInputElement;
-    const value = target.value;
-
-    this.onChange(value);
+  onInputChange() {
+    this.onChange(this.date.value);
   }
 
   registerOnChange(fn: (value: string) => void): void {

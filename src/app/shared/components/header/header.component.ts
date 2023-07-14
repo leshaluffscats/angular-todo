@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component } from "@angular/core";
+import { ChangeDetectionStrategy, Component, OnInit } from "@angular/core";
+import { FormControl } from "@angular/forms";
 import { TranslateService } from "@ngx-translate/core";
 
 @Component({
@@ -7,13 +8,24 @@ import { TranslateService } from "@ngx-translate/core";
   styleUrls: ["./header.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HeaderComponent {
+
+// todo сделать валидацию (показать ошибки под инпутами, а кнопку не дизейблить)
+// todo удаление одного конкретного блока
+// todo trackBy
+export class HeaderComponent implements OnInit {
+  public selectedLang = new FormControl("en");
+
   constructor(private translate: TranslateService) {
     translate.setDefaultLang("en");
   }
 
-  changeLang(event: Event) {
-    const target = event.target as HTMLSelectElement;
-    this.translate.use(target.value);
+  ngOnInit(): void {
+    this.selectedLang.valueChanges.subscribe((value: string) =>
+      this.changeLang(value),
+    );
+  }
+
+  changeLang(language: string) {
+    this.translate.use(language);
   }
 }

@@ -6,7 +6,7 @@ import {
 } from "@angular/core";
 import {
   ControlValueAccessor,
-  // FormControl,
+  FormControl,
   NG_VALUE_ACCESSOR,
 } from "@angular/forms";
 
@@ -26,22 +26,22 @@ import {
   ],
 })
 export class InputComponent implements ControlValueAccessor {
-  value: string | undefined;
+  task = new FormControl("");
 
-  // !value = new FormControl(""); переделать на это
+  constructor(private readonly changeDetector: ChangeDetectorRef) {
+    // ----
+  }
+
   onChange!: (value: string) => void;
   onTouched!: () => void;
 
   writeValue(value: string): void {
-    this.value = value;
+    this.task.setValue(value);
     this.changeDetector.detectChanges(); //если changeDetectionStrategy = default тогда метод detectChanges не надо использовать
   }
 
-  onInputValueChange(event: Event): void {
-    const target = event.target as HTMLInputElement;
-    const value = target.value;
-
-    this.onChange(value);
+  onInputValueChange(): void {
+    this.onChange(this.task.value);
   }
 
   registerOnChange(fn: (value: string) => void): void {
@@ -51,9 +51,5 @@ export class InputComponent implements ControlValueAccessor {
   }
   registerOnTouched(fn: () => void): void {
     this.onTouched = fn;
-  }
-
-  constructor(private readonly changeDetector: ChangeDetectorRef) {
-    // ----
   }
 }

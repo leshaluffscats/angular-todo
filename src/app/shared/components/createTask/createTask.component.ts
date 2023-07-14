@@ -6,26 +6,32 @@ import {
 } from "@angular/core";
 import { FormBuilder, Validators } from "@angular/forms";
 import { ITodo } from "../../interfaces/todo.interface";
+import { v4 as uuidv4 } from "uuid";
 
 @Component({
   selector: "todo-form",
-  templateUrl: "./form.component.html",
-  styleUrls: ["./form.component.scss"],
+  templateUrl: "./createTask.component.html",
+  styleUrls: ["./createTask.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FormComponent {
-  taskForm = this.formBuilder.group({
+export class CreateTaskComponent {
+  @Output() passTask = new EventEmitter<ITodo>();
+
+  public taskForm = this.formBuilder.group({
     text: ["", Validators.required],
     date: ["", [Validators.required, Validators.maxLength(10)]],
     isImportant: [false],
   });
 
-  @Output() passTask = new EventEmitter<ITodo>();
-
-  passTaskObject(task: ITodo) {
-    this.passTask.emit(task);
-  }
   constructor(private formBuilder: FormBuilder) {
     // ....
+  }
+
+  public addTask(): void {
+    const newTask: ITodo = this.taskForm.getRawValue();
+    newTask.id = uuidv4();
+
+    this.passTask.emit(newTask);
+    this.taskForm.reset();
   }
 }
