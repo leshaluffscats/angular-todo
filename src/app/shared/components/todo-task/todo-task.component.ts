@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component, Input } from "@angular/core";
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from "@angular/core";
 import { ITodo } from "../../interfaces/todo.interface";
 
 @Component({
@@ -9,4 +15,10 @@ import { ITodo } from "../../interfaces/todo.interface";
 })
 export class TodoTaskComponent {
   @Input() task: ITodo;
+  @Output() taskIdPassed = new EventEmitter<string>();
+
+  public emitId() {
+    console.log("emitted", this.task.id);
+    this.taskIdPassed.emit(this.task.id);
+  }
 }

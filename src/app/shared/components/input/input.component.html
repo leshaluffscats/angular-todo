@@ -1,7 +1,12 @@
-<input
-  type="text"
-  placeholder="task"
-  [formControl]="task"
-  (input)="onInputValueChange()"
-/>
-<span></span>
+<div>
+  <input
+    type="text"
+    placeholder="task"
+    [formControl]="control"
+  />
+  <span
+    *ngIf="control.errors?.['required'] && (control.touched || control.dirty)"
+  >
+    This field is required
+  </span>
+</div>

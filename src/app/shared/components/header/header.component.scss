@@ -1,5 +1,11 @@
 header {
-    display: flex;
-    justify-content: space-between;
-    gap: 30px;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+
+  select {
+    border-radius: 5px;
+    padding: 2px 4px;
+    cursor: pointer;
+  }
 }

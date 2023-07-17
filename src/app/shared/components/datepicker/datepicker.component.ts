@@ -2,7 +2,6 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
-  Self,
 } from "@angular/core";
 import { ControlValueAccessor, FormControl, NgControl } from "@angular/forms";
 
@@ -13,32 +12,59 @@ import { ControlValueAccessor, FormControl, NgControl } from "@angular/forms";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DatepickerComponent implements ControlValueAccessor {
-  date = new FormControl("");
+  public control: FormControl = new FormControl("");
 
   constructor(
-    @Self() private readonly ngControl: NgControl,
-    private readonly changeDetector: ChangeDetectorRef,
+    private ngControl: NgControl,
+    private readonly cdRef: ChangeDetectorRef,
   ) {
     this.ngControl.valueAccessor = this;
+    if (this.ngControl.control?.parent) {
+      this.control.setParent(this.ngControl.control?.parent);
+    }
   }
 
-  onChange!: (value: string) => void;
-  onTouched!: () => void;
-
-  writeValue(value: string): void {
-    this.date.setValue(value);
-    this.changeDetector.detectChanges();
+  public ngOnInit(): void {
+    this.initErrors();
+    this.initControlValueChanges();
   }
 
-  onInputChange() {
-    this.onChange(this.date.value);
+  public ngDoCheck(): void {
+    if (this.ngControl.control?.errors !== this.control.errors) {
+      this.initErrors();
+    }
+    if (this.ngControl.control?.touched) {
+      this.control.markAsTouched();
+      this.cdRef.markForCheck();
+    } else {
+      this.control.markAsPristine();
+    }
   }
 
-  registerOnChange(fn: (value: string) => void): void {
+  public writeValue(value: string): void {
+    this.control.setValue(value, { emitEvent: false });
+    this.cdRef.detectChanges();
+  }
+
+  public registerOnChange(fn: (value: string) => void): void {
     this.onChange = fn;
   }
 
-  registerOnTouched(fn: () => void): void {
+  public registerOnTouched(fn: () => void): void {
     this.onTouched = fn;
+  }
+
+  public onTouched: () => void;
+
+  public onChange: (value: string) => void;
+
+  protected initErrors(): void {
+    this.control.setErrors(this.ngControl.control!.errors);
+  }
+
+  protected initControlValueChanges(): void {
+    this.control.valueChanges.subscribe(value => {
+      this.onChange(value);
+    });
   }
 }

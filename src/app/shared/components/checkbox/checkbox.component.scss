@@ -1,6 +1,7 @@
 :host {
   display: flex;
   align-items: center;
+  width: 300px;
 }
 
 input {
@@ -17,6 +18,7 @@ input + label {
 
 input + label::before {
   content: "";
+  margin-right: 10px;
   display: inline-block;
   width: 1.2em;
   height: 1.2em;

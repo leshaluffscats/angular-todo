@@ -2,14 +2,5 @@
   <todo-input formControlName="text"></todo-input>
   <todo-datepicker formControlName="date"></todo-datepicker>
   <todo-checkbox formControlName="isImportant"></todo-checkbox>
-
   <button (click)="addTask()">Add Task</button>
 </form>
-<p
-  *ngIf="
-    taskForm.get('text').invalid &&
-    (taskForm.get('text').dirty || taskForm.get('text').touched)
-  "
->
-  Введите обязательное поле
-</p>

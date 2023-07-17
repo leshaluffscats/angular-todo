@@ -7,7 +7,8 @@
   >
     <p>Scheduled: {{ tasks.length }}</p>
     <todo-todo-task
-      *ngFor="let task of tasks; trackBy: identifyer"
+      (taskIdPassed)="deleteTask($event)"
+      *ngFor="let task of tasks; trackBy: trackById"
       [task]="task"
     ></todo-todo-task>
   </div>

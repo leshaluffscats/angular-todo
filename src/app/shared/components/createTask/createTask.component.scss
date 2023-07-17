@@ -1,19 +1,23 @@
+:host {
+  width: 80%;
+}
+
 form {
-  margin-top: 20px;
+  margin: 20px 0 30px;
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
   flex-wrap: wrap;
-  gap: 10px;
+  align-items: center;
+  gap: 20px;
   border: 1px solid teal;
   border-radius: 4px;
-  padding: 5px 10px;
-  // height: 40px;
-  align-items: center;
-  margin-bottom: 30px;
+  padding: 10px 10px;
 
   button {
     background: none;
-    height: 30px;
+    height: 40px;
+    width: 40%;
     border-radius: 7px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -22,6 +26,7 @@ form {
     color: #fff;
     font-weight: 600;
     padding: 2px 8px;
+    align-self: center;
 
     &:hover {
       filter: drop-shadow(3px 3px 7px rgba(0, 0, 255, 0.7));
