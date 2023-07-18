@@ -8,10 +8,6 @@ import { TranslateService } from "@ngx-translate/core";
   styleUrls: ["./header.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-
-// todo сделать валидацию (показать ошибки под инпутами, а кнопку не дизейблить)
-// todo удаление одного конкретного блока
-// todo trackBy
 export class HeaderComponent implements OnInit {
   public selectedLang = new FormControl("en");
 

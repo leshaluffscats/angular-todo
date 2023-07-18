@@ -5,12 +5,20 @@
   outline: none;
 }
 
+body {
+  padding-top: 30px;
+  background-color: #007bb4;
+}
+
 input:not([type="checkbox"], [type="radio"]) {
   height: 30px;
   border: none;
-  border-bottom: 1px solid #000;
+  border-radius: 8px;
   font-size: 15px;
   width: 300px;
+  height: 45px;
+  padding: 0 8px;
+  background-color: #dbe2ef;
 
   &::placeholder {
     text-transform: capitalize;

@@ -1,7 +1,17 @@
+:host {
+  width: 60%;
+}
+
 header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  display: flex;
   gap: 30px;
+  height: 50px;
+  background-color: #fff;
+  border-radius: 10px;
 
   select {
     border-radius: 5px;
