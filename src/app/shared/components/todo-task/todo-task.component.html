@@ -1,10 +1,32 @@
-<div>
-  <p>Task:{{ task.text }}</p>
-  <p>Date:{{ task.date }}</p>
-  <input
-    type="radio"
-    [checked]="task.isImportant"
-  />
-  <button>Edit</button>
-  <button (click)="emitId()">Delete</button>
+<div class="task-wrapper">
+  <div>
+    <p>Task: {{ task.text }}</p>
+    <p>Date: {{ task.date | date }}</p>
+    <input
+      type="radio"
+      [checked]="task.isImportant"
+    />
+    <button (click)="editTask()">Edit</button>
+    <button (click)="emitId()">Delete</button>
+  </div>
+
+  <div
+    *ngIf="editOn"
+    class="editBlock"
+  >
+    <input
+      type="text"
+      [(ngModel)]="task.text"
+    />
+    <input
+      type="date"
+      [(ngModel)]="task.date"
+    />
+    <button
+      (click)="saveTask()"
+      class="save-btn"
+    >
+      Save
+    </button>
+  </div>
 </div>

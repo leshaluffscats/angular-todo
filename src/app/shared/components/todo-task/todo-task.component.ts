@@ -17,8 +17,17 @@ export class TodoTaskComponent {
   @Input() task: ITodo;
   @Output() taskIdPassed = new EventEmitter<string>();
 
-  public emitId() {
-    console.log("emitted", this.task.id);
+  public editOn = false;
+
+  public emitId(): void {
     this.taskIdPassed.emit(this.task.id);
+  }
+
+  public editTask(): void {
+    this.editOn = true;
+  }
+
+  public saveTask(): void {
+    this.editOn = false;
   }
 }
