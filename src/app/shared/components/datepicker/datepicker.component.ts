@@ -15,7 +15,7 @@ export class DatepickerComponent implements ControlValueAccessor {
   public control: FormControl = new FormControl("");
 
   constructor(
-    private ngControl: NgControl,
+    private ngControl: NgControl, //ngControl - базовый класс от которого наследуются formControl. Связывает formControl с элементом в DOM
     private readonly cdRef: ChangeDetectorRef,
   ) {
     this.ngControl.valueAccessor = this;

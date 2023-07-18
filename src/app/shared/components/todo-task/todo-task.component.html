@@ -2,10 +2,15 @@
   <div>
     <p>Task: {{ task.text }}</p>
     <p>Date: {{ task.date | date }}</p>
-    <input
-      type="radio"
-      [checked]="task.isImportant"
-    />
+    <div
+      *ngIf="task.isImportant"
+      class="image-block"
+    >
+      <img
+        src="../../../../assets/images/1828884.png"
+        alt="important"
+      />
+    </div>
     <button (click)="editTask()">Edit</button>
     <button (click)="emitId()">Delete</button>
   </div>
@@ -22,6 +27,14 @@
       type="date"
       [(ngModel)]="task.date"
     />
+
+    <input
+      type="checkbox"
+      [(ngModel)]="task.isImportant"
+      id="importantCheckbox"
+    />
+    <label for="#importantCheckbox">Important</label>
+
     <button
       (click)="saveTask()"
       class="save-btn"
