@@ -1,11 +1,11 @@
 <input
   type="checkbox"
-  [value]="value"
-  (input)="onCheckboxChange($event)"
+  [formControl]="control"
   id="importantFlag"
 />
 <label
   for="importantFlag"
   title="important"
-  >Important</label
 >
+  Important
+</label>

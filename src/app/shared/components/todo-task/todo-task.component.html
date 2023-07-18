@@ -1,6 +1,6 @@
 <div class="task-wrapper">
   <div>
-    <p>Task: {{ task.text }}</p>
+    <p>Task: {{ task.text | cut: 5 }}</p>
     <p>Date: {{ task.date | date }}</p>
     <div
       *ngIf="task.isImportant"

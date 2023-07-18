@@ -40,7 +40,6 @@ export class CreateTaskComponent implements OnInit {
 
     const newTask: ITodo = this.taskForm.getRawValue();
     newTask.id = uuidv4();
-
     this.passTask.emit(newTask);
     this.taskForm.reset();
   }

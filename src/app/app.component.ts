@@ -21,3 +21,5 @@ export class AppComponent {
     this.tasks = this.tasks.filter(el => el.id !== id);
   }
 }
+
+// todo инпуты сделать не под таской а вместо полей

@@ -12,6 +12,7 @@ import { TodoTaskComponent } from "./shared/components/todo-task/todo-task.compo
 import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
+import { CutPipe } from "./shared/pipes/cut.pipe";
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { HttpClient, HttpClientModule } from "@angular/common/http";
     CheckboxComponent,
     DatepickerComponent,
     TodoTaskComponent,
+    CutPipe,
   ],
   imports: [
     FormsModule,

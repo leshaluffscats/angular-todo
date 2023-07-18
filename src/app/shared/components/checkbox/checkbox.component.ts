@@ -4,7 +4,7 @@ import {
   ChangeDetectorRef,
   ChangeDetectionStrategy,
 } from "@angular/core";
-import { ControlValueAccessor, NgControl } from "@angular/forms";
+import { ControlValueAccessor, FormControl, NgControl } from "@angular/forms";
 
 @Component({
   selector: "todo-checkbox",
@@ -13,7 +13,7 @@ import { ControlValueAccessor, NgControl } from "@angular/forms";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CheckboxComponent implements ControlValueAccessor {
-  value: boolean;
+  public control: FormControl = new FormControl();
 
   onChange!: (value: boolean) => void;
   onTouched!: () => void;
@@ -25,17 +25,14 @@ export class CheckboxComponent implements ControlValueAccessor {
     this.ngControl.valueAccessor = this;
   }
 
-  writeValue(value: boolean): void {
-    // из кмпонента выше когда set
-    this.value = value;
-    this.changeDetector.detectChanges();
+  ngOnInit() {
+    this.control.valueChanges.subscribe(value => this.onChange(value));
   }
 
-  onCheckboxChange(event: Event) {
-    // когда руками в форме
-    const target = event.target as HTMLInputElement;
-
-    this.onChange(target.checked);
+  writeValue(value: boolean): void {
+    // из кмпонента выше когда set
+    this.control.setValue(value);
+    this.changeDetector.detectChanges();
   }
 
   registerOnChange(fn: (value: boolean) => void): void {
