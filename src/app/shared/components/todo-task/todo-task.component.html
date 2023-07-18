@@ -1,5 +1,5 @@
 <div class="task-wrapper">
-  <div>
+  <div *ngIf="!editOn">
     <p>Task: {{ task.text | cut: 5 }}</p>
     <p>Date: {{ task.date | date }}</p>
     <div
