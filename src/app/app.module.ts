@@ -13,6 +13,8 @@ import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
 import { CutPipe } from "./shared/pipes/cut.pipe";
+import { ColorDirective } from "./shared/directives/color.directive";
+import { ConditionDirective } from "./shared/directives/condition.directive";
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { CutPipe } from "./shared/pipes/cut.pipe";
     DatepickerComponent,
     TodoTaskComponent,
     CutPipe,
+    ColorDirective,
+    ConditionDirective,
   ],
   imports: [
     FormsModule,

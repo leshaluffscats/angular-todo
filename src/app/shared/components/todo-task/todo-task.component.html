@@ -1,6 +1,6 @@
 <div class="task-wrapper">
   <div *ngIf="!editOn">
-    <p>Task: {{ task.text | cut: 5 }}</p>
+    <p>Task: {{ task.text | cut }}</p>
     <p>Date: {{ task.date | date }}</p>
     <div
       *ngIf="task.isImportant"
@@ -19,15 +19,18 @@
     *ngIf="editOn"
     class="editBlock"
   >
+    <label for="#taskText">Task: </label>
     <input
       type="text"
       [(ngModel)]="task.text"
+      id="taskText"
     />
+    <label for="#taskDate">Date: </label>
     <input
       type="date"
       [(ngModel)]="task.date"
+      id="taskDate"
     />
-
     <input
       type="checkbox"
       [(ngModel)]="task.isImportant"

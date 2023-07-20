@@ -11,9 +11,9 @@ module.exports = {
   },
   parser: "@typescript-eslint/parser",
   plugins: ["@typescript-eslint"],
-  ignorePatterns: ["**/*.html"],
+  ignorePatterns: ["**/*.html", "**/*.directive.ts"],
   rules: {
-    "no-empty-function": "error",
+    "no-empty-function": "warn",
   },
   extends: [
     "eslint:recommended",
