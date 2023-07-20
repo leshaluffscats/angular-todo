@@ -20,7 +20,6 @@ export class AppComponent implements OnInit {
     this.todoService.getTodos().subscribe(todos => (this.tasks = todos));
     this.todoService.getTodos().next(this.localStorageService.getItem("todos"));
   }
-
   public addNewTask(task: ITodo): void {
     this.todoService.addTodo(task);
     this.localStorageService.setItem();
